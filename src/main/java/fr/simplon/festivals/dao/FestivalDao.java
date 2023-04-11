@@ -10,6 +10,8 @@ public interface FestivalDao {
 
     Festival findOne(Long id);
     List<Festival> findAll();
+
+    List<Festival> showAllFestivals();
     void delete(Long id);
 }
 

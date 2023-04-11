@@ -32,6 +32,11 @@ public class FestivalDaoImpl implements FestivalDao {
     }
 
     @Override
+    public List<Festival> showAllFestivals(){
+        return festivalRepository.findAll();
+    }
+
+    @Override
     public void delete(Long id) {
         festivalRepository.deleteById(id);
     }
