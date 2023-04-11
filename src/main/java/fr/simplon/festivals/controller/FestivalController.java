@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class FestivalController {
@@ -18,21 +20,29 @@ public class FestivalController {
     private FestivalDao festivalDao;
 
     @GetMapping("/")
-    public String showAllFestival(Model model){
+    public String showAllFestival(Model model) {
         List<Festival> festivals = festivalDao.showAllFestivals();
         model.addAttribute("festivals", festivals);
         return "index";
     }
+
     @GetMapping("/formulaire")
-    public String afficherFormulaire(Model model){
+    public String afficherFormulaire(Model model) {
         model.addAttribute("festival", new Festival());
         return "/formulaire";
     }
 
     @PostMapping("/ajouterFestival")
-    public String enregistrerFestival(@ModelAttribute("festival") Festival festival){
+    public String enregistrerFestival(@ModelAttribute("festival") Festival festival) {
         festivalDao.save(festival);
         return "redirect:/";
     }
+    @GetMapping("/editer/{id}")
+    public String afficherFormulaireEdition(@PathVariable Long id, Model model) {
+        Optional<Festival> festival = festivalDao.findById(id);
+        model.addAttribute("festival", festival.get());
+        return "/editer";
+    }
+
 }
 

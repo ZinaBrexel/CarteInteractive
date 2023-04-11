@@ -32,37 +32,42 @@
 </header>
 
 <div class="container">
-    <h1>Liste des festivals</h1>
-    <a  th:href="@{/formulaire}" class="btn btn-primary">Ajouter un festival</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ville</th>
-            <th>Lieu</th>
-            <th>Début</th>
-            <th>Fin</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="festival : ${festivals}">
-            <td th:text="${festival.nom}"></td>
-            <td th:text="${festival.ville}"></td>
-            <td th:text="${festival.lieu}"></td>
-            <td th:text="${festival.debut}"></td>
-            <td th:text="${festival.fin}"></td>
-            <td>
-                <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-primary">Editer</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <h1>Editer un festival</h1>
+    <form th:action="@{/editerFestival}" th:object="${festival}" method="post">
+        <div class="form-group">
+            <label >Nom:</label>
+            <input type="text" th:field="*{nom}">
+        </div>
+        <div class="form-group">
+            <label>URL :</label>
+            <input type="text" th:field="*{url}">
+        </div>
+        <div class="form-group">
+            <label>Ville :</label>
+            <input type="text" th:field="*{ville}">
+        </div>
+        <div class="form-group">
+            <label>Code postal :</label>
+            <input type="text" th:field="*{cp}">
+        </div>
+        <div class="form-group">
+            <label>Lieu :</label>
+            <input type="text" th:field="*{lieu}">
+        </div>
+        <div class="form-group">
+            <label>Date de début :</label>
+            <input th:field="*{debut}" type="date">
+        </div>
+        <div class="form-group">
+            <label>Date de fin :</label>
+            <input th:field="*{fin}" type="date">
+        </div>
 
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-
 </body>
 </html>
