@@ -43,6 +43,24 @@ public class FestivalController {
         model.addAttribute("festival", festival.get());
         return "/editer";
     }
+    @PostMapping("/editerFestival/{id}")
+    public String sauvegarderEdition(@ModelAttribute("festival") Festival festival, @PathVariable Long id) {
+        Optional<Festival> festivalToUpdate = festivalDao.findById(id);
+        if (festivalToUpdate.isPresent()) {
+            Festival festivalUpdated = festivalToUpdate.get();
+            festivalUpdated.setId(festival.getId());
+            festivalUpdated.setNom(festival.getNom());
+            festivalUpdated.setUrl(festival.getUrl());
+            festivalUpdated.setVille(festival.getVille());
+            festivalUpdated.setCp(festival.getCp());
+            festivalUpdated.setLieu(festival.getLieu());
+            festivalUpdated.setDebut(festival.getDebut());
+            festivalUpdated.setFin(festival.getFin());
+            festivalDao.save(festivalUpdated);
+        }
+        return "redirect:/";
+    }
+
 
 }
 
