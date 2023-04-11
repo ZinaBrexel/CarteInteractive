@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Trouve ton Festoche!</title>
@@ -33,42 +33,42 @@
 
 <div class="container">
     <h1>Ajout d'un festival</h1>
-    <form method="post" action="#">
+    <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post">
         <div class="form-group">
-            <label for="no">Nom:</label>
-            <input type="text" class="form-control" id="no" name="no">
+            <label >Nom:</label>
+            <input type="text" th:field="*{nom}">
         </div>
         <div class="form-group">
-            <label for="url">URL :</label>
-            <input type="text" class="form-control" id="url" name="url">
+            <label>URL :</label>
+            <input type="text" th:field="*{url}">
         </div>
         <div class="form-group">
-            <label for="ville">Ville :</label>
-            <input type="text" class="form-control" id="ville" name="ville">
+            <label>Ville :</label>
+            <input type="text" th:field="*{ville}">
         </div>
         <div class="form-group">
-            <label for="code_postal">Code postal :</label>
-            <input type="text" class="form-control" id="code_postal" name="code_postal">
+            <label>Code postal :</label>
+            <input type="text" th:field="*{cp}">
         </div>
         <div class="form-group">
-            <label for="lieu">Lieu :</label>
-            <input type="text" class="form-control" id="lieu" name="lieu">
+            <label>Lieu :</label>
+            <input type="text" th:field="*{lieu}">
         </div>
         <div class="form-group">
-            <label for="date_debut">Date de début :</label>
-            <input type="date" class="form-control" id="date_debut" name="date_debut">
+            <label>Date de début :</label>
+            <input th:field="*{debut}" type="date">
         </div>
         <div class="form-group">
-            <label for="date_fin">Date de fin :</label>
-            <input type="date" class="form-control" id="date_fin" name="date_fin">
+            <label>Date de fin :</label>
+            <input th:field="*{fin}" type="date">
         </div>
         <div class="form-group">
-            <label for="latitude">Latitude :</label>
-            <input type="text" class="form-control" id="latitude" name="latitude">
+            <label>Latitude :</label>
+            <input th:field="*{lat}" type="text">
         </div>
         <div class="form-group">
-            <label for="longitude">Longitude :</label>
-            <input type="text" class="form-control" id ="longitude" name="longitude">
+            <label >Longitude :</label>
+            <input th:field="*{lon}" type="text">
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>

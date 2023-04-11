@@ -16,6 +16,7 @@ public class FestivalDaoImpl implements FestivalDao {
     public Festival save(Festival festival) {
         return festivalRepository.save(festival);
     }
+
     @Override
     public List<Festival> saveAll(List<Festival> festivals) {
         return festivalRepository.saveAll(festivals);
