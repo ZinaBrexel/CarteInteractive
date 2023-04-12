@@ -13,6 +13,7 @@
 <!-----------Start Header Section-------------->
 <div th:replace="fragments/header :: header"></div>
 <!-----------End Header Section---------------->
+
 <!-----------Start Map Section-------------->
 <div class="container" >
     <h1 class="titre">Les festivals de votre région</h1>
@@ -23,6 +24,7 @@
     <a th:href="@{/formulaire}" class="btn btn-success">Ajouter un festival</a>
 </div>
     <!---------------End Map Section--------------->
+
     <!-------------Start List Section-------------->
 <div class="container" id="liste">
     <table class="table">
@@ -53,7 +55,10 @@
 
 </div>
 <!-------------End List Section-------------->
+
+<!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
+<!-------------End Footer Section------------>
 <script>
     // Initialisation Leaflet
     let mymap = L.map('map').setView([48.202047, -2.932644], 8);
