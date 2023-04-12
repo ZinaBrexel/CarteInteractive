@@ -87,7 +87,7 @@
 </script>
 <script th:each="festival : ${festivals}" th:object="${festival}"
         th:inline="javascript">
-    addMarkerOnMap([[${festival.lat}]], [[${festival.lon}]], [[${#strings.escapeXml(festival.nom)}]], [[${#strings.escapeXml(festival.ville)}]]);
+    addMarkerOnMap([[${festival.lat}]], [[${festival.lon}]], [[${festival.nom}]], [[${festival.ville}]]);
 
 
 
