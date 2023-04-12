@@ -34,15 +34,7 @@
 <h1>Liste des Festivals</h1>
 <div id="map" style="height: 300px;"></div>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    // Initialisation Leaflet
-    let mymap = L.map('map').setView([48.202047, -2.932644], 8);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        { tileSize: 512, zoomOffset: -1, maxZoom: 18 }
-    ).addTo(mymap);
-
-</script>
 
 <a th:href="@{/formulaire}" class="btn btn-primary">Ajouter un festival</a>
 
@@ -70,7 +62,36 @@
     </tr>
     </tbody>
 </table>
+<script>
+    // Initialisation Leaflet
+    let mymap = L.map('map').setView([48.202047, -2.932644], 8);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { tileSize: 512, zoomOffset: -1, maxZoom: 18 }
+    ).addTo(mymap);
+
+</script>
+<script>
+    // Fonction pour ajouter une marque
+    function addMarkerOnMap(lat, lon, nom, ville) {
+        let coords = [lat, lon];
+// On ajoute une marque à l'endroit de notre géolocalisation
+        marker = L.marker(coords).addTo(mymap);
+// Un popup qui s'affichera au-dessus du marqueur
+        let popup = L.popup().setContent('<h1>'+nom+'</h1>'+ville);
+        marker.bindPopup(popup);
+        marker.addEventListener('click', (event) => {
+            popup.openOn(mymap);
+        });
+    }
+</script>
+<script th:each="festival : ${festivals}" th:object="${festival}"
+        th:inline="javascript">
+    addMarkerOnMap([[${festival.lat}]], [[${festival.lon}]], [[${#strings.escapeJavaScript(festival.nom)}]], [[${#strings.escapeJavaScript(festival.ville)}]]);
+
+
+
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
