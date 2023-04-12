@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Chargement de la bibliothèque Leaflet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
 <!-----------Start Header Section-------------->
@@ -18,40 +20,38 @@
 <div class="container" >
     <h1 class="titre">Les festivals de votre région</h1>
     <div id="map" style="height: 300px;"></div>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-
-<div class="container" id="index">
-    <a th:href="@{/formulaire}" class="btn btn-success">Ajouter un festival</a>
-</div>
+    <div class="container" id="index">
+        <a th:href="@{/formulaire}" class="btn btn-success">Ajouter un festival</a>
+    </div>
     <!---------------End Map Section--------------->
 
     <!-------------Start List Section-------------->
-<div class="container" id="liste">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ville</th>
-            <th>Lieu</th>
-            <th>Début</th>
-            <th>Fin</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="festival : ${festivals}">
-            <td th:text="${festival.nom}"></td>
-            <td th:text="${festival.ville}"></td>
-            <td th:text="${festival.lieu}"></td>
-            <td th:text="${festival.debut}"></td>
-            <td th:text="${festival.fin}"></td>
-            <td>
-                <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-dark">Editer</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container" id="liste">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Lieu</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="festival : ${festivals}">
+                <td th:text="${festival.nom}"></td>
+                <td th:text="${festival.ville}"></td>
+                <td th:text="${festival.lieu}"></td>
+                <td th:text="${festival.debut}"></td>
+                <td th:text="${festival.fin}"></td>
+                <td>
+                    <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-dark">Editer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 <!-------------End List Section-------------->
@@ -67,8 +67,6 @@
         { tileSize: 512, zoomOffset: -1, maxZoom: 18 }
     ).addTo(mymap);
 
-</script>
-<script>
     // Fonction pour ajouter une marque
     function addMarkerOnMap(lat, lon, nom, ville) {
         let coords = [lat, lon];
@@ -90,7 +88,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://kit.fontawesome.com/1ae7c95103.js" crossorigin="anonymous"></script>
 </body>
 </html>
