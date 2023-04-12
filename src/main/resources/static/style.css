@@ -1,6 +1,10 @@
 body{
     background-color: #f2f2f2;
 }
+.customHeader {
+    background-color: #A100FF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 /*--------------------index.html----------------------*/
 .container{
     display: flex;
@@ -51,3 +55,6 @@ th{
     width: 35%;
 }
 /*----------------------------------------------------*/
+#customFooter{
+    margin-top: 40px;
+}
