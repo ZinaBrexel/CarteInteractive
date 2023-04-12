@@ -1,6 +1,7 @@
 body{
     background-color: #f2f2f2;
 }
+/*--------------------index.html----------------------*/
 .container{
     display: flex;
     flex-direction: column;
@@ -14,7 +15,7 @@ body{
 .table{
     text-align: center;
 }
-.titre{
+.titre, .titreFestival{
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -27,3 +28,26 @@ th{
 #liste{
     padding: 0;
 }
+/*----------------------------------------------------*/
+/*-----------formulaire.html & editer.html------------*/
+
+.form-group{
+    display: flex;
+    width: 75%;
+}
+.form-group label{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+.form-group input{
+    width: 35%;
+}
+.titreFestival{
+    text-align: center;
+}
+.form-group button, .form-group a{
+    width: 35%;
+}
+/*----------------------------------------------------*/

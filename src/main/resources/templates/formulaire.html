@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+<!-----------Start Header Section-------------->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Trouve ton Festoche!</a>
@@ -30,10 +32,11 @@
         </div>
     </nav>
 </header>
-
+<!-----------End Header Section---------------->
+<!-------------Start Form Section-------------->
 <div class="container">
-    <h1>Ajout d'un festival</h1>
-    <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post">
+    <h1 class="titreFestival">Créer un nouveau festival</h1>
+    <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post" class="formulaire">
         <div class="form-group">
             <label >Nom:</label>
             <input type="text" th:field="*{nom}">
@@ -70,10 +73,18 @@
             <label >Longitude :</label>
             <input th:field="*{lon}" type="text">
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-        <a href="/" class="btn btn-secondary">Annuler</a>
+        <div class="form-group">
+            <label></label>
+            <button type="submit" class="btn btn-success">Envoyer</button>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <a href="/" class="btn btn-danger">Annuler</a>
+        </div>
+
     </form>
 </div>
+<!-------------End Form Section-------------->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
