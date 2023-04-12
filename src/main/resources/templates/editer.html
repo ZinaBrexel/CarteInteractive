@@ -35,9 +35,6 @@
     <h1>Editer un festival</h1>
     <form th:action="@{/editerFestival/{id}(id=${festival.id})}" th:object="${festival}" method="post">
 
-    <div class="form-group">
-            <input type="text" th:field="*{id}">
-        </div>
         <div class="form-group">
             <label >Nom:</label>
             <input type="text" th:field="*{nom}">

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
 <header>
@@ -30,39 +31,50 @@
         </div>
     </nav>
 </header>
+<h1>Liste des Festivals</h1>
+<div id="map" style="height: 300px;"></div>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Initialisation Leaflet
+    let mymap = L.map('map').setView([48.202047, -2.932644], 8);
 
-<div class="container">
-    <h1>Liste des festivals</h1>
-    <a  th:href="@{/formulaire}" class="btn btn-primary">Ajouter un festival</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ville</th>
-            <th>Lieu</th>
-            <th>Début</th>
-            <th>Fin</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="festival : ${festivals}">
-            <td th:text="${festival.nom}"></td>
-            <td th:text="${festival.ville}"></td>
-            <td th:text="${festival.lieu}"></td>
-            <td th:text="${festival.debut}"></td>
-            <td th:text="${festival.fin}"></td>
-            <td>
-                <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-primary">Editer</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { tileSize: 512, zoomOffset: -1, maxZoom: 18 }
+    ).addTo(mymap);
+
+</script>
+
+<a th:href="@{/formulaire}" class="btn btn-primary">Ajouter un festival</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Lieu</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="festival : ${festivals}">
+        <td th:text="${festival.nom}"></td>
+        <td th:text="${festival.ville}"></td>
+        <td th:text="${festival.lieu}"></td>
+        <td th:text="${festival.debut}"></td>
+        <td th:text="${festival.fin}"></td>
+        <td>
+            <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-primary">Editer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
 </body>
 </html>
