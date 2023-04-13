@@ -43,8 +43,8 @@
                 <td th:text="${festival.nom}"></td>
                 <td th:text="${festival.ville}"></td>
                 <td th:text="${festival.lieu}"></td>
-                <td th:text="${festival.debut}"></td>
-                <td th:text="${festival.fin}"></td>
+                <td th:text="${#dates.format(festival.debut, 'dd MMMM yyyy')}"></td>
+                <td th:text="${#dates.format(festival.fin, 'dd MMMM yyyy')}"></td>
                 <td>
                     <a th:href="@{/editer/{id}(id=${festival.id})}" th:text="#{message.edit}" class="btn btn-dark">Editer</a>
                 </td>
