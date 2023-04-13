@@ -15,12 +15,12 @@
 
 <!-------------Start Form Section-------------->
 <div class="container">
-    <h1 class="titreFestival">Editer un festival</h1>
+    <h1 class="titreFestival" th:text="#{message.editFestival}">Editer un festival</h1>
     <div class="container">
         <form th:action="@{/editerFestival/{id}(id=${festival.id})}" th:object="${festival}" method="post">
 
             <div class="form-group">
-                <label >Nom:</label>
+                <label th:text="#{message.name}">Nom:</label>
                 <input type="text" th:field="*{nom}">
             </div>
             <div class="form-group">
@@ -28,32 +28,32 @@
                 <input type="text" th:field="*{url}">
             </div>
             <div class="form-group">
-                <label>Ville :</label>
+                <label th:text="#{message.city}">Ville :</label>
                 <input type="text" th:field="*{ville}">
             </div>
             <div class="form-group">
-                <label>Code postal :</label>
+                <label th:text="#{message.postalCode}">Code postal :</label>
                 <input type="text" th:field="*{cp}">
             </div>
             <div class="form-group">
-                <label>Lieu :</label>
+                <label th:text="#{message.city}">Lieu :</label>
                 <input type="text" th:field="*{lieu}">
             </div>
             <div class="form-group">
-                <label>Date de début :</label>
+                <label th:text="#{message.start}">Date de début :</label>
                 <input th:field="*{debut}" type="date">
             </div>
             <div class="form-group">
-                <label>Date de fin :</label>
+                <label th:text="#{message.end}">Date de fin :</label>
                 <input th:field="*{fin}" type="date">
             </div>
             <div class="form-group">
                 <label></label>
-                <button type="submit" class="btn btn-success">Envoyer</button>
+                <button type="submit" class="btn btn-success" th:text="#{message.submit}">Envoyer</button>
             </div>
             <div class="form-group">
                 <label></label>
-                <a href="/" class="btn btn-danger">Annuler</a>
+                <a href="/" class="btn btn-danger" th:text="#{message.cancel}">Annuler</a>
             </div>
         </form>
     </div>

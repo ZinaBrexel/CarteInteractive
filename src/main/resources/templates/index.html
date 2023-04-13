@@ -18,24 +18,24 @@
 
 <!-----------Start Map Section-------------->
 <div class="container" >
-    <h1 class="titre">Les festivals de votre région</h1>
+    <h1 id="titreAccueil" class="titre" th:text="#{message.title}">Les festivals de votre région</h1>
     <div id="map" style="height: 300px;"></div>
     <div class="container" id="index">
-        <a th:href="@{/formulaire}" class="btn btn-success">Ajouter un festival</a>
+        <a th:href="@{/formulaire}" class="btn btn-success" th:text="#{message.add}">Ajouter un festival</a>
     </div>
     <!---------------End Map Section--------------->
 
     <!-------------Start List Section-------------->
     <div class="container" id="liste">
-        <table class="table">
+        <table class="table" aria-describedby="titreAccueil">
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Ville</th>
-                <th>Lieu</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Action</th>
+                <th th:text="#{message.name}">Nom</th>
+                <th th:text="#{message.city}">Ville</th>
+                <th th:text="#{message.location}">Lieu</th>
+                <th th:text="#{message.start}">Début</th>
+                <th th:text="#{message.end}" >Fin</th>
+                <th >Action</th>
             </tr>
             </thead>
             <tbody>
@@ -43,10 +43,10 @@
                 <td th:text="${festival.nom}"></td>
                 <td th:text="${festival.ville}"></td>
                 <td th:text="${festival.lieu}"></td>
-                <td th:text="${festival.debut}"></td>
-                <td th:text="${festival.fin}"></td>
+                <td th:text="${#dates.format(festival.debut, 'dd MMMM yyyy')}"></td>
+                <td th:text="${#dates.format(festival.fin, 'dd MMMM yyyy')}"></td>
                 <td>
-                    <a th:href="@{/editer/{id}(id=${festival.id})}" class="btn btn-dark">Editer</a>
+                    <a th:href="@{/editer/{id}(id=${festival.id})}" th:text="#{message.edit}" class="btn btn-dark">Editer</a>
                 </td>
             </tr>
             </tbody>
