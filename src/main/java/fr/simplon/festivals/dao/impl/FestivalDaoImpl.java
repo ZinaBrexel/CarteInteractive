@@ -14,6 +14,14 @@ import java.util.Optional;
 @Repository
 public class FestivalDaoImpl implements FestivalDao {
 
+
+    /**
+     * Constructeur par défaut de la classe FestivalDaoImpl.
+     */
+    public FestivalDaoImpl() {
+        // TODO: Ajouter une implémentation si nécessaire.
+    }
+
     /**
      * Repository Spring pour les objets Festival.
      */

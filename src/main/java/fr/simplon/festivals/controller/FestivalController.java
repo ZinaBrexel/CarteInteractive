@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Le contrôleur FestivalController gère les requêtes HTTP relatives aux festivals.
+ * Constructeur par défaut de la classe FestivalController.
+ * Il est utilisé pour injecter automatiquement le DAO FestivalDao par Spring.
  */
 @Controller
 public class FestivalController {
@@ -25,6 +26,7 @@ public class FestivalController {
      */
     @Autowired
     private FestivalDao festivalDao;
+
 
     /**
      * Affiche la liste de tous les festivals dans le modèle et renvoie la vue "index".
