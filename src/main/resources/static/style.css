@@ -22,6 +22,14 @@ body{
 .table{
     text-align: center;
 }
+.table tr {
+    transition: box-shadow 0.2s ease-in-out;
+}
+.table tr:hover {
+    background-color: #DCDCDC;
+    box-shadow: 0 0 10px #999999;
+}
+
 .titre, .titreFestival{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -34,6 +42,7 @@ th{
 }
 #liste{
     padding: 0;
+
 }
 /*----------------------------------------------------*/
 
