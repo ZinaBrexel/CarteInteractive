@@ -42,7 +42,27 @@ th{
 }
 #liste{
     padding: 0;
+    position: relative;
+    height: 400px; /* ou la hauteur que vous souhaitez pour votre table */
+    overflow-y: scroll;
+}
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+
+}
+
+th {
+    padding: 8px;
+    text-align: left;
+    font-weight: bold;
 }
 /*----------------------------------------------------*/
 
