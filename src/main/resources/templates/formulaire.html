@@ -7,6 +7,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Chargement de la bibliothèque Leaflet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
 <!-----------Start Header Section-------------->
@@ -14,67 +17,69 @@
 <!-----------End Header Section---------------->
 
 <!-------------Start Form Section-------------->
-<div class="container">
-    <h1 class="titreFestival" th:text="#{message.addFestival}">Créer un nouveau festival</h1>
-    <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post" class="formulaire">
-        <div class="form-group">
-            <label th:text="#{message.name}">Nom:</label>
-            <input type="text" th:field="*{nom}">
-        </div>
-        <div class="form-group">
-            <label >URL :</label>
-            <input type="text" th:field="*{url}">
-        </div>
-        <div class="form-group">
-            <label th:text="#{message.city}">Ville :</label>
-            <input type="text" th:field="*{ville}">
-        </div>
-        <div class="form-group">
-            <label th:text="#{message.postalCode}">Code postal :</label>
-            <input type="text" th:field="*{cp}">
-        </div>
-        <div class="form-group">
-            <label th:text="#{message.location}">Lieu :</label>
-            <input type="text" th:field="*{lieu}">
-        </div>
-        <div class="form-group">
-            <label th:text="#{message.start}">Date de début :</label>
-            <input th:field="*{debut}" type="date">
-        </div>
-        <div class="form-group">
-            <label th:text="#{message.end}">Date de fin :</label>
-            <input th:field="*{fin}" type="date">
-        </div>
-        <div class="form-group">
-            <label>Latitude :</label>
-            <input th:field="*{lat}" type="text">
-        </div>
-        <div class="form-group">
-            <label >Longitude :</label>
-            <input th:field="*{lon}" type="text">
-        </div>
-        <div class="form-group">
-            <label></label>
-            <button id="subForm"type="submit" class="btn" th:text="#{message.submit}">Envoyer</button>
-        </div>
-        <div class="form-group">
-            <label></label>
-            <a id="cancelForm" href="/" class="btn" th:text="#{message.cancel}">Annuler</a>
-        </div>
+<div class=" big_container row">
+    <div id="map" class="mapForm  col-md-6"></div>
+    <div class="container  col-md-6" id="formulaire">
+        <h1 class="titreFestival" th:text="#{message.addFestival}">Créer un nouveau festival</h1>
+        <form  th:action="@{/ajouterFestival}" th:object="${festival}" method="post" class="formulaire">
+            <div class="form-group">
+                <label th:text="#{message.name}">Nom:</label>
+                <input type="text" th:field="*{nom}">
+            </div>
+            <div class="form-group">
+                <label >URL :</label>
+                <input type="text" th:field="*{url}">
+            </div>
+            <div class="form-group">
+                <label th:text="#{message.city}">Ville :</label>
+                <input type="text" th:field="*{ville}">
+            </div>
+            <div class="form-group">
+                <label th:text="#{message.postalCode}">Code postal :</label>
+                <input type="text" th:field="*{cp}">
+            </div>
+            <div class="form-group">
+                <label th:text="#{message.location}">Lieu :</label>
+                <input type="text" th:field="*{lieu}">
+            </div>
+            <div class="form-group">
+                <label th:text="#{message.start}">Date de début :</label>
+                <input th:field="*{debut}" type="date">
+            </div>
+            <div class="form-group">
+                <label th:text="#{message.end}">Date de fin :</label>
+                <input th:field="*{fin}" type="date">
+            </div>
+            <div class="form-group">
+                <label>Latitude :</label>
+                <input id="lat" th:field="*{lat}" type="text">
+            </div>
+            <div class="form-group">
+                <label >Longitude :</label>
+                <input id="lon" th:field="*{lon}" type="text">
+            </div>
+            <div class="form-group">
+                <label></label>
+                <button id="subForm"type="submit" class="btn" th:text="#{message.submit}">Envoyer</button>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <a id="cancelForm" href="/" class="btn" th:text="#{message.cancel}">Annuler</a>
+            </div>
 
-    </form>
+        </form>
+    </div>
 </div>
+
 <!-------------End Form Section-------------->
 
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
 <!-------------End Footer Section------------>
-
+<script th:src="@{/scriptFormulaire.js}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-
 <script src="https://kit.fontawesome.com/1ae7c95103.js" crossorigin="anonymous"></script>
-
 </body>
 </html>

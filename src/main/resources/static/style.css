@@ -103,6 +103,18 @@ th {
 
 /*-----------formulaire.html & editer.html------------*/
 
+.big_container{
+    margin:30px;
+    align-items: center;
+}
+.mapForm{
+    margin-top:20px;
+    height: 400px;
+    max-height: 70vh;
+}
+#formulaire{
+    flex-direction: column;
+}
 .form-group{
     display: flex;
     width: 75%;
