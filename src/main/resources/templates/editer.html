@@ -21,31 +21,31 @@
 
             <div class="form-group">
                 <label th:text="#{message.name}">Nom:</label>
-                <input type="text" th:field="*{nom}">
+                <input name="nom" type="text" required="required" th:field="*{nom}">
             </div>
             <div class="form-group">
                 <label>URL :</label>
-                <input type="text" th:field="*{url}">
+                <input name="urlInput" type="text" required="required" th:field="*{url}">
             </div>
             <div class="form-group">
                 <label th:text="#{message.city}">Ville :</label>
-                <input type="text" th:field="*{ville}">
+                <input name="ville" type="text" required="required" th:field="*{ville}">
             </div>
             <div class="form-group">
                 <label th:text="#{message.postalCode}">Code postal :</label>
-                <input type="text" th:field="*{cp}">
+                <input name="cp" type="text" required="required" th:field="*{cp}">
             </div>
             <div class="form-group">
                 <label th:text="#{message.city}">Lieu :</label>
-                <input type="text" th:field="*{lieu}">
+                <input name="lieu" type="text" required="required" th:field="*{lieu}">
             </div>
             <div class="form-group">
                 <label th:text="#{message.start}">Date de début :</label>
-                <input th:field="*{debut}" type="date">
+                <input required="required" name="debut" th:field="*{debut}" type="date">
             </div>
             <div class="form-group">
                 <label th:text="#{message.end}">Date de fin :</label>
-                <input th:field="*{fin}" type="date">
+                <input required="required" name="fin" th:field="*{fin}" type="date">
             </div>
             <div class="form-group">
                 <label></label>
@@ -68,5 +68,6 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1ae7c95103.js" crossorigin="anonymous"></script>
+<script th:src="@{/scriptsecu.js}"></script>
 </body>
 </html>
