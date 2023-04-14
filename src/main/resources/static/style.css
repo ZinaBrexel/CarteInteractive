@@ -3,7 +3,7 @@ body{
 }
 /*--------------------header.html---------------------*/
 .customHeader {
-    background-color: #A100FF;
+    background-image: linear-gradient(to bottom, #A100FF, #9000E5,#8000CC);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 /*----------------------------------------------------*/
@@ -22,24 +22,22 @@ body{
 .table{
     text-align: center;
 }
-.table tr {
+.table tbody tr {
     transition: box-shadow 0.2s ease-in-out;
 }
-.table tr:hover {
+.table tbody tr:hover {
     background-color: #DCDCDC;
     box-shadow: 0 0 10px #999999;
+}
+tr:nth-child(odd) {
+    background-color: white;
 }
 
 .titre, .titreFestival{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-tr:nth-child(odd) {
-    background-color: white;
-}
-th{
-    background-color: white;
-}
+
 #liste{
     padding: 0;
     position: relative;
@@ -56,14 +54,51 @@ th{
 thead {
     position: sticky;
     top: 0;
-
 }
 
 th {
     padding: 8px;
     text-align: left;
     font-weight: bold;
+    background-color: white;
 }
+#edit-btn {
+    background-image: linear-gradient(to bottom, #444, #222);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#edit-btn:hover {
+    background-image: linear-gradient(to bottom, #222, #444);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#add-btn, #subForm, #subEdit {
+    background-image: linear-gradient(to bottom, #4CAF50, #2E8B57);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#add-btn:hover , #subForm:hover, #subEdit:hover{
+    background-image: linear-gradient(to bottom, #2E8B57, #4CAF50);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
 /*----------------------------------------------------*/
 
 /*-----------formulaire.html & editer.html------------*/
@@ -87,10 +122,30 @@ th {
 .form-group button, .form-group a{
     width: 35%;
 }
+#cancelForm, #cancelEdit {
+    background-image: linear-gradient(to bottom, #e74c3c, #c0392b);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#cancelForm:hover, #cancelEdit:hover {
+    background-image: linear-gradient(to bottom, #c0392b, #e74c3c);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 /*----------------------------------------------------*/
 
 /*--------------------footer.html--------------------*/
 #customFooter{
+    background-image: linear-gradient(to bottom, #444, #222);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 40px;
 }
 /*----------------------------------------------------*/
