@@ -21,7 +21,7 @@
     <h1 id="titreAccueil" class="titre" th:text="#{message.title}">Les festivals de votre région</h1>
     <div id="map" style="height: 300px;"></div>
     <div class="container" id="index">
-        <a th:href="@{/formulaire}" class="btn btn-success" th:text="#{message.add}">Ajouter un festival</a>
+        <a id="add-btn" th:href="@{/formulaire}" class="btn" th:text="#{message.add}">Ajouter un festival</a>
     </div>
     <!---------------End Map Section--------------->
 
@@ -35,7 +35,7 @@
                 <th th:text="#{message.location}">Lieu</th>
                 <th th:text="#{message.start}">Début</th>
                 <th th:text="#{message.end}" >Fin</th>
-                <th >Action</th>
+                <th th:text="#{message.action}">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@
                 <td th:text="${#dates.format(festival.debut, 'dd MMMM yyyy')}"></td>
                 <td th:text="${#dates.format(festival.fin, 'dd MMMM yyyy')}"></td>
                 <td>
-                    <a th:href="@{/editer/{id}(id=${festival.id})}" th:text="#{message.edit}" class="btn btn-dark">Editer</a>
+                    <a id="edit-btn" th:href="@{/editer/{id}(id=${festival.id})}" th:text="#{message.edit}" class="btn">Editer</a>
                 </td>
             </tr>
             </tbody>
